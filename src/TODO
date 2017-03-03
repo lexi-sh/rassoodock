@@ -1,0 +1,15 @@
+Linking a db:
+    Connect to db
+        Create abstraction for different sql databases
+    Create folders for Linking
+    >>Commit
+
+Commit 
+    Read parts of the db that ssc can currently source control
+    Write out current state of those parts to folders
+
+Compare
+    Read parts of the db that ssc can currently source control
+    Read the same db state from the folders
+    Compare and show differences
+    Apply differences

@@ -1,0 +1,6 @@
+[package]
+name = "rassoodock"
+version = "0.1.0"
+authors = ["Chris Jones <chris@cjqed.com>"]
+
+[dependencies]
