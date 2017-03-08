@@ -1,6 +1,6 @@
-pub mod StoredProc;
+pub mod stored_procedure;
 
-use self::StoredProc::StoredProcedure;
+use self::stored_procedure::StoredProcedure;
 
 pub struct Database {
     stored_procs: Vec<StoredProcedure>

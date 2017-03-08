@@ -1,7 +1,9 @@
 use std::fmt;
+use chrono::NaiveDateTime;
 
 pub struct StoredProcedure {
-    pub stored_proc_sql_string: String
+    pub stored_proc_sql_string: String,
+    pub last_modified_on: NaiveDateTime
 }
 
 
