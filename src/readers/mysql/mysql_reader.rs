@@ -14,13 +14,17 @@ impl DatabaseReader for MySqlReader {
 
         let mut builder = my::OptsBuilder::new();
         builder.ip_or_hostname(ip_address_opt)
-            .db_name(Some(database_name))
+            .db_name(Some(database_name.clone()))
             .user(username_opt)
             .pass(password_opt);
 
         let pool = my::Pool::new(my::Opts::from(builder)).unwrap(); // This will panic with the error from mysql
 
-        let results: Vec<StoredProcedure> = pool.prep_exec("SHOW PROCEDURE STATUS", ()).unwrap()
+        let results: Vec<StoredProcedure> = 
+            pool.prep_exec("SHOW PROCEDURE STATUS WHERE Db = :db", 
+                params!{
+                    "db" => database_name
+                }).unwrap()
             .map(|mut result| {
                 let mut row = result.unwrap();
                 
