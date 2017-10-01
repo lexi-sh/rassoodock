@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock", "Rassoodock\Rassoodock.csproj", "{550ACB89-F37B-4A0C-BB9D-453C9DFC6091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock", "Rassoodock\Rassoodock.csproj", "{550ACB89-F37B-4A0C-BB9D-453C9DFC6091}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.Databases", "..\Rassoodock.Databases\Rassoodock.Databases.csproj", "{BBB57CCD-9BDD-4C6A-A1A6-E11E8BC3FE86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Windows", "Rassoodock.SqlServer.Windows\Rassoodock.SqlServer.Windows.csproj", "{DC9F9486-4263-47AD-8531-CA4BA45C244B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.SqlServer.Windows", "Rassoodock.SqlServer.Windows\Rassoodock.SqlServer.Windows.csproj", "{DC9F9486-4263-47AD-8531-CA4BA45C244B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.Databases", "Rassoodock.Databases\Rassoodock.Databases.csproj", "{35EC7C12-8043-4490-94A3-715301B09162}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{550ACB89-F37B-4A0C-BB9D-453C9DFC6091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{550ACB89-F37B-4A0C-BB9D-453C9DFC6091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{550ACB89-F37B-4A0C-BB9D-453C9DFC6091}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBB57CCD-9BDD-4C6A-A1A6-E11E8BC3FE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBB57CCD-9BDD-4C6A-A1A6-E11E8BC3FE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBB57CCD-9BDD-4C6A-A1A6-E11E8BC3FE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBB57CCD-9BDD-4C6A-A1A6-E11E8BC3FE86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC9F9486-4263-47AD-8531-CA4BA45C244B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC9F9486-4263-47AD-8531-CA4BA45C244B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC9F9486-4263-47AD-8531-CA4BA45C244B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC9F9486-4263-47AD-8531-CA4BA45C244B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35EC7C12-8043-4490-94A3-715301B09162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EC7C12-8043-4490-94A3-715301B09162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35EC7C12-8043-4490-94A3-715301B09162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35EC7C12-8043-4490-94A3-715301B09162}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
