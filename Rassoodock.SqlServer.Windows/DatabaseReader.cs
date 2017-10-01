@@ -6,7 +6,7 @@ namespace Rassoodock.SqlServer.Windows
 {
     public class DatabaseReader : IDatabaseReader
     {
-        public IEnumerable<StoredProcedure> GetStoredProcedures()
+        public IEnumerable<StoredProcedure> GetStoredProcedures(LinkedDatabase database)
         {
             throw new NotImplementedException();
         }

@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Window
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.Databases", "Rassoodock.Databases\Rassoodock.Databases.csproj", "{35EC7C12-8043-4490-94A3-715301B09162}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.Common", "Rassoodock.Common\Rassoodock.Common.csproj", "{F420D8F1-0F01-4A13-8496-6BF24F957005}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.SqlServer.Windows.Tests", "Rassoodock.SqlServer.Windows.Tests\Rassoodock.SqlServer.Windows.Tests.csproj", "{51140270-16BB-43C2-AB11-4CB146F0CA5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{35EC7C12-8043-4490-94A3-715301B09162}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35EC7C12-8043-4490-94A3-715301B09162}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35EC7C12-8043-4490-94A3-715301B09162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F420D8F1-0F01-4A13-8496-6BF24F957005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F420D8F1-0F01-4A13-8496-6BF24F957005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F420D8F1-0F01-4A13-8496-6BF24F957005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F420D8F1-0F01-4A13-8496-6BF24F957005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51140270-16BB-43C2-AB11-4CB146F0CA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51140270-16BB-43C2-AB11-4CB146F0CA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51140270-16BB-43C2-AB11-4CB146F0CA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51140270-16BB-43C2-AB11-4CB146F0CA5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
