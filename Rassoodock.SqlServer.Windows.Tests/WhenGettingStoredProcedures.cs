@@ -1,21 +1,31 @@
 
-using NUnit.Framework;
+using System;
+using Rassoodock.Common;
+using Rassoodock.Tests.Utilities;
+using Xunit;
 
 namespace Rassoodock.SqlServer.Windows.Tests
 {
-    [TestFixture]
     public class WhenGettingStoredProcedures
     {
-        [OneTimeSetUp]
-        public void StoredProcedureSetup()
+        private readonly LinkedDatabase _Database;
+
+        public WhenGettingStoredProcedures()
         {
-            
+            LaunchSettings.SetLaunchSettingsEnvironmentVariables();
+            _Database = new LinkedDatabase
+            {
+                DatabaseType = DatabaseType.SqlServer,
+                ConnectionString = Environment.GetEnvironmentVariable("TestWindowsSqlServer")
+            };
         }
 
-        [Test]
+
+        [Fact]
         public void ShouldBeAbleToGetStoredProceduresForWindowsSqlServer()
         {
-             
+            var dbReader = new DatabaseReader();
+            var storedProcs = dbReader.GetStoredProcedures(_Database);
         }
     }
 }
