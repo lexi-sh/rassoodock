@@ -4,6 +4,6 @@ namespace Rassoodock.Databases
 {
     public interface IDatabaseReader
     {
-        IEnumerable<StoredProcedure> GetStoredProcedures(LinkedDatabase database);
+        IEnumerable<StoredProcedure> GetStoredProcedures();
     }
 }

@@ -1,8 +1,9 @@
-﻿using Rassoodock.SqlServer.Windows.Models;
+﻿using Rassoodock.SqlServer.Windows.Mappings;
+using Rassoodock.SqlServer.Windows.Models;
 using Shouldly;
 using Xunit;
 
-namespace Rassoodock.SqlServer.Windows.Tests
+namespace Rassoodock.SqlServer.Windows.Tests.Unit
 {
     public class WhenMappingToStoredProcedures
     {
@@ -16,7 +17,8 @@ namespace Rassoodock.SqlServer.Windows.Tests
                 Specific_Schema = "abc"
             };
 
-            var storedProc = sqlServerStoredProc.MapToStoredProcedure();
+            var converter = new RoutineSqlModelTypeConverter();
+            var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
             storedProc.Text.ShouldBe("CREATE PROC [abc].[a name]");
         }
@@ -32,7 +34,8 @@ namespace Rassoodock.SqlServer.Windows.Tests
                 Specific_Schema = "abc"
             };
 
-            var storedProc = sqlServerStoredProc.MapToStoredProcedure();
+            var converter = new RoutineSqlModelTypeConverter();
+            var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
             storedProc.Text.ShouldBe("CREATE PROC [abc].[a name]");
         }
@@ -47,7 +50,8 @@ namespace Rassoodock.SqlServer.Windows.Tests
                 Specific_Schema = "abc"
             };
 
-            var storedProc = sqlServerStoredProc.MapToStoredProcedure();
+            var converter = new RoutineSqlModelTypeConverter();
+            var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
             storedProc.Text.ShouldBe("CREATE PROC [abc].[aname]");
         }
@@ -62,7 +66,8 @@ namespace Rassoodock.SqlServer.Windows.Tests
                 Specific_Schema = "abc"
             };
 
-            var storedProc = sqlServerStoredProc.MapToStoredProcedure();
+            var converter = new RoutineSqlModelTypeConverter();
+            var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
             storedProc.Text.ShouldBe("CREATE PROC [abc].[aname]");
         }
@@ -77,7 +82,8 @@ namespace Rassoodock.SqlServer.Windows.Tests
                 Specific_Schema = "abc"
             };
 
-            var storedProc = sqlServerStoredProc.MapToStoredProcedure();
+            var converter = new RoutineSqlModelTypeConverter();
+            var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
             storedProc.Text.ShouldBe("CREATE PROC [abc].[aname]");
         }

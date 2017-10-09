@@ -8,8 +8,14 @@ namespace Rassoodock.Tests.Utilities
 {
     public static class LaunchSettings
     {
+        private static bool _environmentVariablesSetup;
+        
         public static void SetLaunchSettingsEnvironmentVariables()
         {
+            if (_environmentVariablesSetup)
+            {
+                return;
+            }
             using (var file = File.OpenText("Properties\\launchSettings.json"))
             {
                 var reader = new JsonTextReader(file);
@@ -28,6 +34,8 @@ namespace Rassoodock.Tests.Utilities
                     Environment.SetEnvironmentVariable(variable.Name, variable.Value.ToString());
                 }
             }
+
+            _environmentVariablesSetup = true;
         }
     }
 }
