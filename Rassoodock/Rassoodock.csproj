@@ -1,8 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
-
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rassoodock.Common\Rassoodock.Common.csproj" />
+    <ProjectReference Include="..\Rassoodock.SqlServer.Windows.Tests\Rassoodock.SqlServer.Windows.Tests.Integration.csproj" />
+  </ItemGroup>
 </Project>

@@ -1,11 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\..\Rassoodock.Databases\Rassoodock.Databases.csproj" />
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="dapper" Version="1.50.2" />
   </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\Rassoodock.Common\Rassoodock.Common.csproj" />
+    <ProjectReference Include="..\Rassoodock.Databases\Rassoodock.Databases.csproj" />
+  </ItemGroup>
 </Project>

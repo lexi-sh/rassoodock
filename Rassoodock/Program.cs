@@ -1,12 +1,27 @@
 ﻿using System;
+using System.IO;
+using System.Text;
+using Microsoft.Extensions.CommandLineUtils;
+using Newtonsoft.Json;
+using Rassoodock.Common;
+using Rassoodock.Startup;
 
 namespace Rassoodock
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var startups = new IStartup[]
+            {
+                new AutomapperStartup(),
+                new CliStatup()
+            };
+
+            foreach (var startup in startups)
+            {
+                startup.Startup(args);
+            }
         }
     }
 }
