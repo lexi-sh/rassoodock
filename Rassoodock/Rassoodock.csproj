@@ -10,6 +10,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rassoodock.Common\Rassoodock.Common.csproj" />
-    <ProjectReference Include="..\Rassoodock.SqlServer.Windows.Tests\Rassoodock.SqlServer.Windows.Tests.Integration.csproj" />
+    <ProjectReference Include="..\Rassoodock.SqlServer.Windows.Tests.Integration\Rassoodock.SqlServer.Windows.Tests.Integration.csproj" />
   </ItemGroup>
 </Project>
