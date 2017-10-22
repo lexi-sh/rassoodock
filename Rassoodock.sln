@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Databases", "Ras
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Common", "Rassoodock.Common\Rassoodock.Common.csproj", "{F420D8F1-0F01-4A13-8496-6BF24F957005}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Windows.Tests.Integration", "Rassoodock.SqlServer.Windows.Tests\Rassoodock.SqlServer.Windows.Tests.Integration.csproj", "{51140270-16BB-43C2-AB11-4CB146F0CA5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Windows.Tests.Integration", "Rassoodock.SqlServer.Windows.Tests.Integration\Rassoodock.SqlServer.Windows.Tests.Integration.csproj", "{51140270-16BB-43C2-AB11-4CB146F0CA5B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Tests.Utilities", "Rassoodock.Tests.Utilities\Rassoodock.Tests.Utilities.csproj", "{38C124FB-7869-4EEE-A868-9980323E6E29}"
 EndProject
