@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlServer", "SqlServer", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{B066820E-4951-4DEA-BCE7-3F135D4AC81A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.Cli", "Rassoodock.Cli\Rassoodock.Cli.csproj", "{7B7FF312-CDA7-42D8-A7E4-D6E7DF881378}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Cli", "Rassoodock.Cli\Rassoodock.Cli.csproj", "{7B7FF312-CDA7-42D8-A7E4-D6E7DF881378}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
