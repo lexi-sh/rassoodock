@@ -9,6 +9,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Rassoodock.Cli\Rassoodock.Cli.csproj" />
     <ProjectReference Include="..\Rassoodock.Common\Rassoodock.Common.csproj" />
     <ProjectReference Include="..\Rassoodock.SqlServer.Windows.Tests\Rassoodock.SqlServer.Windows.Tests.Integration.csproj" />
   </ItemGroup>

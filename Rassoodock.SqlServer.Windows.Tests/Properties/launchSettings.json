@@ -1,10 +1,10 @@
 {
-  "profiles": {
-    "Rassoodock.SqlServer.Windows.Tests": {
-      "commandName": "Project",
-      "environmentVariables": {
-        "TestWindowsSqlServer": "Server=tcp:w-rassoodock.database.windows.net,1433;Initial Catalog=rassoodocktest;Persist Security Info=False;User ID=cjqed;Password=6qmCb1yp7@R%04;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-      }
-    }
-  }
+	"profiles": {
+		"Rassoodock.SqlServer.Windows.Tests": {
+			"commandName": "Project",
+			"environmentVariables": {
+				"TestWindowsSqlServer": "Data Source=localhost;Integrated Security=True;"
+			}
+		}
+	}
 }

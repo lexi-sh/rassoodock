@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using AutoMapper;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Rassoodock.SqlServer.Windows.Mappings;
 
 namespace Rassoodock.Tests.Utilities
 {
@@ -35,7 +37,17 @@ namespace Rassoodock.Tests.Utilities
                 }
             }
 
+            SetupAutomapper();
             _environmentVariablesSetup = true;
+        }
+
+        private static void SetupAutomapper()
+        {
+            var startup = new MappingStartup();
+            Mapper.Initialize(cfg =>
+            {
+                startup.Configure(cfg);
+            });
         }
     }
 }

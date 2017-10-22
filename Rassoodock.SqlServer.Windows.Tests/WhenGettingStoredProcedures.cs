@@ -40,18 +40,29 @@ namespace Rassoodock.SqlServer.Windows.Tests.Integration
                 {
                     conn.Execute($"CREATE DATABASE {_database.Name}");
                 }
+                else
+                {
+                    conn.Execute($"DROP DATABASE {_database.Name}");
+                    conn.Execute($"CREATE DATABASE {_database.Name}");
+                }
             }
         }
 
         private void CreateStoredProc(StoredProcedure procedure)
         {
-            var name = $"[{procedure.Schema}].[{procedure.Name}]";
-            var query = $"CREATE PROC {name} AS BEGIN {procedure.Text} END";
+            var query = StoredProcString(procedure);
             using (var conn = new SqlConnection(_database.ConnectionString))
             {
                 conn.Open();
+                conn.ChangeDatabase(_database.Name);
                 conn.Execute(query);
             }
+        }
+
+        private string StoredProcString(StoredProcedure procedure)
+        {
+            var name = $"[{procedure.Schema}].[{procedure.Name}]";
+            return $"CREATE PROC {name} AS BEGIN {procedure.Text} END";
         }
         
         [Fact]
@@ -72,13 +83,13 @@ namespace Rassoodock.SqlServer.Windows.Tests.Integration
                 Name = "asd1444",
                 Text = "SELECT 'asd'"
             };
-
+            
             CreateStoredProc(storedProc1);
             CreateStoredProc(storedProc2);
 
             var storedProcs = dbReader.GetStoredProcedures().ToList();
-            storedProcs.FirstOrDefault(x => x.Text == storedProc1.Text).ShouldNotBeNull();
-            storedProcs.FirstOrDefault(x => x.Text == storedProc2.Text).ShouldNotBeNull();
+            storedProcs.FirstOrDefault(x => x.Text == StoredProcString(storedProc1)).ShouldNotBeNull();
+            storedProcs.FirstOrDefault(x => x.Text == StoredProcString(storedProc2)).ShouldNotBeNull();
         }
     }
 }
