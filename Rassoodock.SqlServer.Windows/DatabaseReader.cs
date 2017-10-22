@@ -22,6 +22,7 @@ namespace Rassoodock.SqlServer.Windows
             using (var conn = new SqlConnection(_database.ConnectionString))
             {
                 conn.Open();
+                conn.ChangeDatabase(_database.Name);
                 var sqlModels = conn.Query<RoutinesSqlModel>(@"
                     SELECT ROUTINE_DEFINITION, 
                            SPECIFIC_SCHEMA, 
