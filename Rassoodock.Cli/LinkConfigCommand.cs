@@ -22,11 +22,11 @@ namespace Rassoodock.Cli
                 var connectionString = command.Argument("connection-string",
                     "The full connection string for this database");
                 
-                command.OnExecute(() => CreateLinkedDatabaseFolder(linkName.Value, databaseType.Value, connectionString.Value));
+                command.OnExecute(() => UpdateDatabaseConfig(linkName.Value, databaseType.Value, connectionString.Value));
             };
         }
 
-        public int CreateLinkedDatabaseFolder(string linkName, string databaseType, string connectionString)
+        public int UpdateDatabaseConfig(string linkName, string databaseType, string connectionString)
         {
             try
             {

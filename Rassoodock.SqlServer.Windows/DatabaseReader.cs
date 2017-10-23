@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using AutoMapper;
 using Dapper;
+using Rassoodock.Common;
 using Rassoodock.Databases;
 using Rassoodock.SqlServer.Windows.Models;
 

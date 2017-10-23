@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{B066
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Cli", "Rassoodock.Cli\Rassoodock.Cli.csproj", "{7B7FF312-CDA7-42D8-A7E4-D6E7DF881378}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.Cli.Tests", "Rassoodock.Cli.Tests\Rassoodock.Cli.Tests.csproj", "{E663FF08-0AB1-4FAF-835C-FDF26D1EA48B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{7B7FF312-CDA7-42D8-A7E4-D6E7DF881378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B7FF312-CDA7-42D8-A7E4-D6E7DF881378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B7FF312-CDA7-42D8-A7E4-D6E7DF881378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E663FF08-0AB1-4FAF-835C-FDF26D1EA48B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E663FF08-0AB1-4FAF-835C-FDF26D1EA48B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E663FF08-0AB1-4FAF-835C-FDF26D1EA48B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E663FF08-0AB1-4FAF-835C-FDF26D1EA48B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{11405358-9C2A-49AD-AFD8-7A6631044207} = {20899845-314F-42B2-8D91-49C64A8095E1}
 		{B066820E-4951-4DEA-BCE7-3F135D4AC81A} = {CABE6302-8927-4888-8E50-80C79838AE52}
 		{7B7FF312-CDA7-42D8-A7E4-D6E7DF881378} = {400524E3-8564-4E2B-A3E8-04106567F88E}
+		{E663FF08-0AB1-4FAF-835C-FDF26D1EA48B} = {20899845-314F-42B2-8D91-49C64A8095E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C32646F-73CA-409F-B2AC-A3FF0669EE4E}
