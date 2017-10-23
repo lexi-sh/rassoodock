@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Rassoodock.Common;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
-namespace Rassoodock
+namespace Rassoodock.Common
 {
     public class LinkedDatabase
     {
@@ -11,6 +9,7 @@ namespace Rassoodock
 
         public string ConnectionString { get; set; }
 
+        [JsonConverter(typeof(StringEnumConverter))]
         public DatabaseType DatabaseType { get; set; }
 
         public string FolderLocation { get; set; }

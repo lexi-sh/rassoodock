@@ -3,6 +3,9 @@
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Rassoodock.Common\Rassoodock.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -12,8 +15,5 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\Users\chris.jones.POWERDMS\.nuget\packages\newtonsoft.json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 </Project>
