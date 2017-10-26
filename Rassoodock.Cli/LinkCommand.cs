@@ -13,6 +13,7 @@ namespace Rassoodock.Cli
         {
             return command =>
             {
+                command.HelpOption("-?|-h|--help");
                 command.Description =
                     "Set up a database for source control. Note, using this will DESTROY the source control folder of the same name.";
                 var databaseName = command.Argument("name",

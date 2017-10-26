@@ -1,6 +1,6 @@
 ﻿namespace Rassoodock.Databases
 {
-    public class StoredProcedure
+    public class StoredProcedure : ISavableDatabaseObject
     {
         public string Text { get; set; }
 
