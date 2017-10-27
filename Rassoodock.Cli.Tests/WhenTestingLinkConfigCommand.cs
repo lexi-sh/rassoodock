@@ -1,6 +1,8 @@
+using System;
 using System.IO;
 using Newtonsoft.Json;
 using Rassoodock.Common;
+using Rassoodock.Tests.Base;
 using Shouldly;
 using Xunit;
 
@@ -11,7 +13,7 @@ namespace Rassoodock.Cli.Tests
         [Fact]
         public void ShouldUpdateJsonConfig()
         {
-            const string databaseName = "testing123";
+            var databaseName = EnhancedRandom.String(10, 20);
             const string databaseType = "sqlserver";
             const string connectionString = "Data Source=localhost;Integrated Security=True;";
             new LinkCommand().CreateLinkedDatabaseFolder(databaseName);

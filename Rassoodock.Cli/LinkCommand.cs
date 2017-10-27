@@ -38,7 +38,7 @@ namespace Rassoodock.Cli
 
                 if (Directory.Exists(folderName))
                 {
-                    Directory.Delete(folderName);
+                    Directory.Delete(folderName, true);
                 }
 
                 Directory.CreateDirectory(folderName);
@@ -62,9 +62,7 @@ namespace Rassoodock.Cli
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception caught:");
-
-                Console.WriteLine(JsonConvert.SerializeObject(e, Formatting.Indented));
+                Console.WriteLine("Exception caught:" + e.Message);
                 return 1;
             }
         }
