@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using AutoMapper;
 using Dapper;
@@ -28,7 +27,8 @@ namespace Rassoodock.SqlServer.Windows
                     SELECT ROUTINE_DEFINITION, 
                            SPECIFIC_SCHEMA, 
                            SPECIFIC_NAME 
-                    FROM INFORMATION_SCHEMA.ROUTINES");
+                    FROM INFORMATION_SCHEMA.ROUTINES
+                    WHERE ROUTINE_TYPE = 'PROCEDURE'");
 
                 return Mapper.Map<IEnumerable<StoredProcedure>>(sqlModels);
             }

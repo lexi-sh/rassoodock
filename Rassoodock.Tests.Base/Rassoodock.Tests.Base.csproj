@@ -8,17 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.2" />
-    <PackageReference Include="Shouldly" Version="2.8.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Rassoodock.SqlServer.Windows\Rassoodock.SqlServer.Windows.csproj" />
-    <ProjectReference Include="..\Rassoodock.Tests.Base\Rassoodock.Tests.Base.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\Rassoodock.Common\Rassoodock.Common.csproj" />
+    <ProjectReference Include="..\Rassoodock\Rassoodock.csproj" />
   </ItemGroup>
 
 </Project>

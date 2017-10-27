@@ -13,6 +13,7 @@ namespace Rassoodock.Cli
         {
             return command =>
             {
+                command.HelpOption("-?|-h|--help");
                 command.Description =
                     "Set up a database for source control. Note, using this will DESTROY the source control folder of the same name.";
                 var databaseName = command.Argument("name",
@@ -37,7 +38,7 @@ namespace Rassoodock.Cli
 
                 if (Directory.Exists(folderName))
                 {
-                    Directory.Delete(folderName);
+                    Directory.Delete(folderName, true);
                 }
 
                 Directory.CreateDirectory(folderName);
@@ -61,9 +62,7 @@ namespace Rassoodock.Cli
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception caught:");
-
-                Console.WriteLine(JsonConvert.SerializeObject(e, Formatting.Indented));
+                Console.WriteLine("Exception caught:" + e.Message);
                 return 1;
             }
         }

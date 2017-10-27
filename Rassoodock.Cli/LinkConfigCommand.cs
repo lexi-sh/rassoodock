@@ -13,16 +13,15 @@ namespace Rassoodock.Cli
         {
             return command =>
             {
-                command.Description = @"
-                    Set all configuration values for a particular link. 
-                    This will overwrite all of: link-name, database-type, and connection-string";
-                var linkName = command.Argument("link-name", "The name of the database link defined earlier");
-                var databaseType = command.Argument("database-type",
-                    "The type of the database must be one of: (sqlserver, mysql, postgresql, sqlite)");
-                var connectionString = command.Argument("connection-string",
-                    "The full connection string for this database");
+                command.Description = @"Set all configuration values for a particular link. This will overwrite all of: link-name, database-type, and connection-string";
+                command.HelpOption("-?|-h|--help");
+                var linkName = command.Option("-n|--name", "The name of the database link defined earlier", CommandOptionType.SingleValue);
+                var databaseType = command.Option("-d|--database-type",
+                    "The type of the database must be one of: (sqlserver, mysql, postgresql, sqlite)", CommandOptionType.SingleValue);
+                var connectionString = command.Option("-c|--connection-string",
+                    "The full connection string for this database", CommandOptionType.SingleValue);
                 
-                command.OnExecute(() => UpdateDatabaseConfig(linkName.Value, databaseType.Value, connectionString.Value));
+                command.OnExecute(() => UpdateDatabaseConfig(linkName.Value(), databaseType.Value(), connectionString.Value()));
             };
         }
 
@@ -41,6 +40,11 @@ namespace Rassoodock.Cli
                     return 1;
                 }
 
+                if (string.IsNullOrEmpty(databaseType))
+                {
+                    Console.WriteLine("Database type required for modifying configuration");
+                    return 1;
+                }
                 var dbType = databaseType.ParseEnum<DatabaseType>();
 
                 var fileName = Path.Combine(directory, $"{linkName}.json");
@@ -67,9 +71,8 @@ namespace Rassoodock.Cli
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception caught:");
-
-                Console.WriteLine(JsonConvert.SerializeObject(e, Formatting.Indented));
+                Console.WriteLine($"Exception caught:{e.Message}");
+                
                 return 1;
             }
         }
