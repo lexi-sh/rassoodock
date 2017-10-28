@@ -51,8 +51,14 @@ namespace Rassoodock.SqlServer.Windows.Tests.Integration
             CreateStoredProc(storedProc2);
 
             var storedProcs = dbReader.GetStoredProcedures().ToList();
-            storedProcs.FirstOrDefault(x => x.Text == StoredProcString(storedProc1)).ShouldNotBeNull();
-            storedProcs.FirstOrDefault(x => x.Text == StoredProcString(storedProc2)).ShouldNotBeNull();
+
+            var sp1 = storedProcs.FirstOrDefault(x => x.Name == storedProc1.Name);
+            sp1.ShouldNotBeNull();
+            sp1.Text.ShouldContain(storedProc1.Text);
+
+            var sp2 = storedProcs.FirstOrDefault(x => x.Name == storedProc2.Name);
+            sp2.ShouldNotBeNull();
+            sp2.Text.ShouldContain(storedProc2.Text);
         }
 
         [Fact]

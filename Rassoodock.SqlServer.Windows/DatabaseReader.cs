@@ -28,23 +28,13 @@ namespace Rassoodock.SqlServer.Windows
                     SELECT r.SPECIFIC_SCHEMA, 
                            r.SPECIFIC_NAME ,
                            s.uses_ansi_nulls, 
-                           s.uses_quoted_identifier
+                           s.uses_quoted_identifier,
+                           s.definition
                     FROM INFORMATION_SCHEMA.ROUTINES r
                         INNER JOIN SYS.SQL_MODULES s
                             ON OBJECT_NAME(s.object_id) = r.SPECIFIC_NAME
                     WHERE ROUTINE_TYPE = 'PROCEDURE'");
-
-                foreach (var routine in sqlModels)
-                {
-                    var storedProcText = conn.Query<SpHelpTextSqlModel>("sp_helptext @name",
-                        new
-                        {
-                            name = $"{routine.Specific_Schema}.{routine.Specific_Name}"
-                        });
-
-                    routine.Routine_Definition = string.Join("", storedProcText.Select(x => x.Text));
-                }
-
+                
                 return Mapper.Map<IEnumerable<StoredProcedure>>(sqlModels);
             }
         }

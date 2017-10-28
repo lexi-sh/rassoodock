@@ -12,7 +12,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
         {
             var sqlServerStoredProc = new RoutinesSqlModel
             {
-                Routine_Definition = "CREATE PROC [abc].[a name]",
+                definition = "CREATE PROC [abc].[a name]",
                 Specific_Name = "a name",
                 Specific_Schema = "abc"
             };
@@ -29,7 +29,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
         {
             var sqlServerStoredProc = new RoutinesSqlModel
             {
-                Routine_Definition = "CREATE PROC [a name]",
+                definition = "CREATE PROC [a name]",
                 Specific_Name = "a name",
                 Specific_Schema = "abc"
             };
@@ -45,7 +45,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
         {
             var sqlServerStoredProc = new RoutinesSqlModel
             {
-                Routine_Definition = "CREATE PROC aname",
+                definition = "CREATE PROC aname",
                 Specific_Name = "aname",
                 Specific_Schema = "abc"
             };
@@ -61,7 +61,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
         {
             var sqlServerStoredProc = new RoutinesSqlModel
             {
-                Routine_Definition = "CREATE PROC abc.aname",
+                definition = "CREATE PROC abc.aname",
                 Specific_Name = "aname",
                 Specific_Schema = "abc"
             };
@@ -77,7 +77,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
         {
             var sqlServerStoredProc = new RoutinesSqlModel
             {
-                Routine_Definition = "CREATE PROC [abc].aname",
+                definition = "CREATE PROC [abc].aname",
                 Specific_Name = "aname",
                 Specific_Schema = "abc"
             };

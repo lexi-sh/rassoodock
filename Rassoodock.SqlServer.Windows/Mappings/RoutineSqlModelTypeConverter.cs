@@ -37,13 +37,16 @@ namespace Rassoodock.SqlServer.Windows.Mappings
 
             var newName = $"[{source.Specific_Schema}].[{source.Specific_Name}]";
 
-            var text = regex.Replace(source.Routine_Definition, newName, 1);
+            var text = regex.Replace(source.definition, newName, 1);
 
-            text = $"SET QUOTED_IDENTIFIER {OnOrOff(source.uses_quoted_identifier)};" + Environment.NewLine +
+            var textEndsWithNewLine = text.EndsWith(Environment.NewLine);
+
+            text = $"SET QUOTED_IDENTIFIER {OnOrOff(source.uses_quoted_identifier)}" + Environment.NewLine +
                    "GO" + Environment.NewLine +
-                   $"SET ANSI_NULLS {OnOrOff(source.uses_ansi_nulls)};" + Environment.NewLine +
+                   $"SET ANSI_NULLS {OnOrOff(source.uses_ansi_nulls)}" + Environment.NewLine +
                    "GO" + Environment.NewLine +
-                   text;
+                   text + (textEndsWithNewLine ? string.Empty : Environment.NewLine) +
+                   "GO" + Environment.NewLine;
 
             return new StoredProcedure
             {
