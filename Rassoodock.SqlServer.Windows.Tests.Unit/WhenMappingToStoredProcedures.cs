@@ -20,7 +20,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
             var converter = new RoutineSqlModelTypeConverter();
             var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
-            storedProc.Text.ShouldBe("CREATE PROC [abc].[a name]");
+            storedProc.Text.ShouldContain("CREATE PROC [abc].[a name]");
         }
 
 
@@ -37,7 +37,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
             var converter = new RoutineSqlModelTypeConverter();
             var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
-            storedProc.Text.ShouldBe("CREATE PROC [abc].[a name]");
+            storedProc.Text.ShouldContain("CREATE PROC [abc].[a name]");
         }
 
         [Fact]
@@ -53,7 +53,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
             var converter = new RoutineSqlModelTypeConverter();
             var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
-            storedProc.Text.ShouldBe("CREATE PROC [abc].[aname]");
+            storedProc.Text.ShouldContain("CREATE PROC [abc].[aname]");
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
             var converter = new RoutineSqlModelTypeConverter();
             var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
-            storedProc.Text.ShouldBe("CREATE PROC [abc].[aname]");
+            storedProc.Text.ShouldContain("CREATE PROC [abc].[aname]");
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace Rassoodock.SqlServer.Windows.Tests.Unit
             var converter = new RoutineSqlModelTypeConverter();
             var storedProc = converter.Convert(sqlServerStoredProc, null, null);
 
-            storedProc.Text.ShouldBe("CREATE PROC [abc].[aname]");
+            storedProc.Text.ShouldContain("CREATE PROC [abc].[aname]");
         }
     }
 }

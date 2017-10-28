@@ -25,9 +25,13 @@ namespace Rassoodock.SqlServer.Windows
                 conn.Open();
                 conn.ChangeDatabase(_database.Name);
                 var sqlModels = conn.Query<RoutinesSqlModel>(@"
-                    SELECT SPECIFIC_SCHEMA, 
-                           SPECIFIC_NAME 
-                    FROM INFORMATION_SCHEMA.ROUTINES
+                    SELECT r.SPECIFIC_SCHEMA, 
+                           r.SPECIFIC_NAME ,
+                           s.uses_ansi_nulls, 
+                           s.uses_quoted_identifier
+                    FROM INFORMATION_SCHEMA.ROUTINES r
+                        INNER JOIN SYS.SQL_MODULES s
+                            ON OBJECT_NAME(s.object_id) = r.SPECIFIC_NAME
                     WHERE ROUTINE_TYPE = 'PROCEDURE'");
 
                 foreach (var routine in sqlModels)

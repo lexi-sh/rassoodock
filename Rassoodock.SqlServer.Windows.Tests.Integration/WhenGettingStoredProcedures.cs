@@ -1,3 +1,4 @@
+using System;
 using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
@@ -72,6 +73,36 @@ namespace Rassoodock.SqlServer.Windows.Tests.Integration
             var sp1 = storedProcs.FirstOrDefault(x => x.Name == storedProc1.Name);
             sp1.ShouldNotBeNull();
             sp1.Text.ShouldContain(storedProc1.Text);
+        }
+
+        [Fact]
+        public void ShouldSetAnsiNullsAndQuotedIdentifierCorrectly()
+        {
+            var dbReader = new DatabaseReader(Database);
+
+            var procedure = new StoredProcedure
+            {
+                Schema = "dbo",
+                Name = "ansi and quoted",
+                Text = $"SELECT '{EnhancedRandom.String(800, 1000)}'"
+            };
+
+            var query = StoredProcString(procedure);
+            using (var conn = new SqlConnection(Database.ConnectionString))
+            {
+                conn.Open();
+                conn.ChangeDatabase(Database.Name);
+                conn.Execute("SET QUOTED_IDENTIFIER OFF");
+                conn.Execute("SET ANSI_NULLS OFF");
+                conn.Execute(query);
+            }
+
+            var storedProcs = dbReader.GetStoredProcedures().ToList();
+            var sp1 = storedProcs.FirstOrDefault(x => x.Name == procedure.Name);
+            sp1.ShouldNotBeNull();
+            sp1.Text.ShouldContain(procedure.Text);
+            sp1.Text.ShouldContain("SET QUOTED_IDENTIFIER OFF");
+            sp1.Text.ShouldContain("SET ANSI_NULLS OFF");
         }
     }
 }
