@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using AutoMapper;
 using Dapper;
 using Rassoodock.Common;
@@ -24,11 +25,21 @@ namespace Rassoodock.SqlServer.Windows
                 conn.Open();
                 conn.ChangeDatabase(_database.Name);
                 var sqlModels = conn.Query<RoutinesSqlModel>(@"
-                    SELECT ROUTINE_DEFINITION, 
-                           SPECIFIC_SCHEMA, 
+                    SELECT SPECIFIC_SCHEMA, 
                            SPECIFIC_NAME 
                     FROM INFORMATION_SCHEMA.ROUTINES
                     WHERE ROUTINE_TYPE = 'PROCEDURE'");
+
+                foreach (var routine in sqlModels)
+                {
+                    var storedProcText = conn.Query<SpHelpTextSqlModel>("sp_helptext @name",
+                        new
+                        {
+                            name = $"{routine.Specific_Schema}.{routine.Specific_Name}"
+                        });
+
+                    routine.Routine_Definition = string.Join("", storedProcText.Select(x => x.Text));
+                }
 
                 return Mapper.Map<IEnumerable<StoredProcedure>>(sqlModels);
             }

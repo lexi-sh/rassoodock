@@ -53,5 +53,25 @@ namespace Rassoodock.SqlServer.Windows.Tests.Integration
             storedProcs.FirstOrDefault(x => x.Text == StoredProcString(storedProc1)).ShouldNotBeNull();
             storedProcs.FirstOrDefault(x => x.Text == StoredProcString(storedProc2)).ShouldNotBeNull();
         }
+
+        [Fact]
+        public void ShouldNotCutOffStoredProcAfter8000Characters()
+        {
+            var dbReader = new DatabaseReader(Database);
+
+            var storedProc1 = new StoredProcedure
+            {
+                Schema = "dbo",
+                Name = "long stored proc",
+                Text = $"SELECT '{EnhancedRandom.String(8100, 10000)}'"
+            };
+
+            CreateStoredProc(storedProc1);
+            
+            var storedProcs = dbReader.GetStoredProcedures().ToList();
+            var sp1 = storedProcs.FirstOrDefault(x => x.Name == storedProc1.Name);
+            sp1.ShouldNotBeNull();
+            sp1.Text.ShouldContain(storedProc1.Text);
+        }
     }
 }
