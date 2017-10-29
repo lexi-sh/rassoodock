@@ -1,4 +1,4 @@
-﻿namespace Rassoodock.SqlServer.Windows.Models
+﻿namespace Rassoodock.SqlServer.Windows.Models.SqlModels
 {
     public class RoutinesSqlModel
     {

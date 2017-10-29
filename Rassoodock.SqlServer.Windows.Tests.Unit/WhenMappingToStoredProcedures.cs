@@ -1,5 +1,5 @@
 ﻿using Rassoodock.SqlServer.Windows.Mappings;
-using Rassoodock.SqlServer.Windows.Models;
+using Rassoodock.SqlServer.Windows.Models.SqlModels;
 using Shouldly;
 using Xunit;
 

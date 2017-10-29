@@ -1,0 +1,40 @@
+﻿namespace Rassoodock.SqlServer.Windows.Models.Domain
+{
+    public enum DataType
+    {
+        BinInt,
+        Numeric,
+        Bit,
+        SmallInt,
+        Decimal,
+        SmallMoney,
+        Int,
+        TinyInt,
+        Money,
+        Float,
+        Real,
+        Date,
+        DateTimeOffset,
+        DateTime2,
+        SmallDateTime,
+        DateTime,
+        Time,
+        Char,
+        Varcar,
+        Text,
+        NChar,
+        NVarChar,
+        NText,
+        Binary,
+        VarBinary,
+        Image,
+        Cursor,
+        Rowversion,
+        HierarchyId,
+        UniqueIdentifier,
+        Xml,
+        SqlVariant,
+        Table
+
+    }
+}

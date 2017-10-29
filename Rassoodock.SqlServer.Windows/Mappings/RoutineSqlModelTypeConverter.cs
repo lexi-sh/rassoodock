@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using AutoMapper;
 using Rassoodock.Databases;
-using Rassoodock.SqlServer.Windows.Models;
+using Rassoodock.SqlServer.Windows.Models.SqlModels;
 
 namespace Rassoodock.SqlServer.Windows.Mappings
 {
