@@ -1,39 +1,74 @@
-﻿namespace Rassoodock.SqlServer.Windows.Models.Domain
+﻿using Rassoodock.Common;
+
+namespace Rassoodock.SqlServer.Windows.Models.Domain
 {
     public enum DataType
     {
+        [Sql("BIGINT")]
         BinInt,
+        [Sql("NUMERIC")]
         Numeric,
+        [Sql("BIT")]
         Bit,
+        [Sql("SMALLINT")]
         SmallInt,
+        [Sql("DECIMAL")]
         Decimal,
+        [Sql("SMALLMONEY")]
         SmallMoney,
+        [Sql("INT")]
         Int,
+        [Sql("TINYINT")]
         TinyInt,
+        [Sql("MONEY")]
         Money,
+        [Sql("FLOAT")]
         Float,
+        [Sql("REAL")]
         Real,
+        [Sql("DATE")]
         Date,
+        [Sql("DATETIMEOFFSET")]
         DateTimeOffset,
+        [Sql("DATETIME2")]
         DateTime2,
+        [Sql("SMALLDATETIME")]
         SmallDateTime,
+        [Sql("DATETIME")]
         DateTime,
+        [Sql("TIME")]
         Time,
+        [Sql("CHAR")]
         Char,
-        Varcar,
+        [Sql("VARCHAR")]
+        VarChar,
+        [Sql("TEXT")]
         Text,
+        [Sql("NCHAR")]
         NChar,
+        [Sql("NVARCHAR")]
         NVarChar,
+        [Sql("NTEXT")]
         NText,
+        [Sql("BINARY")]
         Binary,
+        [Sql("VARBINARY")]
         VarBinary,
+        [Sql("IMAGE")]
         Image,
+        [Sql("CURSOR")]
         Cursor,
-        Rowversion,
+        [Sql("ROWVERSION")]
+        RowVersion,
+        [Sql("HIERARCHYID")]
         HierarchyId,
+        [Sql("UNIQUEIDENTIFIER")]
         UniqueIdentifier,
+        [Sql("XML")]
         Xml,
+        [Sql("SQLVARIANT")]
         SqlVariant,
+        [Sql("TABLE")]
         Table
 
     }

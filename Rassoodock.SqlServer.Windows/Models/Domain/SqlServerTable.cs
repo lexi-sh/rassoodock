@@ -2,16 +2,25 @@
 
 namespace Rassoodock.SqlServer.Windows.Models.Domain
 {
-    public class Table
+    public class SqlServerTable
     {
-        private const string PrimaryFileGroup = "PRIMARY";
-        public Table()
+        public SqlServerTable()
         {
-            FileGroup = PrimaryFileGroup;
+            FileGroup = SqlServerConstants.PrimaryFileGroup;
+            TextImageFileGroup = SqlServerConstants.PrimaryFileGroup;
         }
+
         public string FileGroup { get; set; }
 
+        public string TextImageFileGroup { get; set; }
+
+        public string Schema { get; set; }
+
+        public string Name { get; set; }
+
         public IEnumerable<TableTrigger> Triggers { get; set; }
+
+        public IEnumerable<Column> Columns { get; set; }
 
         public PrimaryKeyConstraint PrimaryKeyConstraint { get; set; }
 

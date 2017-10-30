@@ -4,6 +4,11 @@ namespace Rassoodock.SqlServer.Windows.Models.Domain
 {
     public class Index
     {
+        public Index()
+        {
+            FileGroup = SqlServerConstants.PrimaryFileGroup;
+        }
+
         public string Name { get; set; }
 
         public IEnumerable<Column> Columns { get; set; }
@@ -13,5 +18,7 @@ namespace Rassoodock.SqlServer.Windows.Models.Domain
         public bool Clustered { get; set; }
 
         public string FilterDefinition { get; set; }
+
+        public string FileGroup { get; set; }
     }
 }

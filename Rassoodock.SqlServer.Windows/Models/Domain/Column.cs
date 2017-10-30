@@ -4,10 +4,10 @@
     {
         public string Name { get; set; }
 
-        public DataType DataType { get; set; }
+        public DataTypeCls DataType { get; set; }
 
         public bool Nullable { get; set; }
 
-        public DefaultConstraint Constraint { get; set; }
+        public DefaultConstraint DefaultConstraint { get; set; }
     }
 }
