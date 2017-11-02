@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Tests.Base", "Ra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Tests.Integration", "Rassoodock.SqlServer.Tests.Integration\Rassoodock.SqlServer.Tests.Integration.csproj", "{30A529C5-ED7B-4586-BF1C-3CA2891C2CDF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Windows.Tests.Unit", "Rassoodock.SqlServer.Tests.Unit\Rassoodock.SqlServer.Windows.Tests.Unit.csproj", "{C467AE70-184D-4253-9121-9A02CA448529}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Tests.Unit", "Rassoodock.SqlServer.Tests.Unit\Rassoodock.SqlServer.Tests.Unit.csproj", "{C467AE70-184D-4253-9121-9A02CA448529}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
