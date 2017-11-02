@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Linq;
+using System.Text;
 using AutoMapper;
 using Rassoodock.Databases;
 using Rassoodock.SqlServer.Windows.Extensions;
@@ -60,6 +61,12 @@ namespace Rassoodock.SqlServer.Windows.Mappings
                     text.Append($"[{col.DataType.ToSql()} ");
                 }
 
+                // Collation
+                if (!string.IsNullOrWhiteSpace(col.Collation))
+                {
+                    text.Append($"COLLATE {col.Collation}");
+                }
+
                 // Nullable
                 if (!col.Nullable)
                 {
@@ -86,8 +93,85 @@ namespace Rassoodock.SqlServer.Windows.Mappings
                 text.AppendLine();
             }
             text.AppendLine("GO");
+            
             //Triggers
-            return new Table();
+            foreach (var trigger in source.Triggers)
+            {
+                text.AppendLine($"SET QUOTED_IDENTIFIER {OnOrOff(trigger.QuotedIdentifier)}");
+                text.AppendLine("GO");
+                text.AppendLine($"SET ANSI_NULLS {OnOrOff(trigger.QuotedIdentifier)}");
+                text.AppendLine("GO");
+                text.AppendLine(trigger.Text);
+                text.AppendLine("GO");
+            }
+
+            //Primary key constraint
+            if (source.PrimaryKeyConstraint != null)
+            {
+                var primaryKeyClusteredString = source.PrimaryKeyConstraint.Clustered ?
+                    SqlServerConstants.Clustered :
+                    SqlServerConstants.Nonclustered;
+                text.Append($"ALTER TABLE [{source.Schema}].[{source.Name}]");
+                text.Append($" ADD CONSTRAINT [{source.PrimaryKeyConstraint.Name}] PRIMARY KEY {primaryKeyClusteredString} ");
+                text.AppendColunmNames(source.PrimaryKeyConstraint.Columns);
+                text.AppendLine($"ON [{source.PrimaryKeyConstraint.FileGroup}]");
+                text.AppendLine("GO");
+            }
+            
+
+            // Indexes
+            foreach (var index in source.Indexes)
+            {
+                var clusteredString = index.Clustered ?
+                    SqlServerConstants.Clustered :
+                    SqlServerConstants.Nonclustered;
+
+                text.Append($"CREATE {clusteredString} INDEX [{index.Name}]");
+                text.Append($" ON [{source.Schema}].[{source.Name}] ");
+
+                text.AppendColunmNames(index.Columns);
+
+                if (index.IncludedColumns.Any())
+                {
+                    text.Append("INCLUDE ");
+                    text.AppendColunmNames(index.IncludedColumns);
+                }
+
+                if (string.IsNullOrWhiteSpace(index.FilterDefinition))
+                {
+                    text.Append($"WHERE ({index.FilterDefinition})");
+                }
+
+                text.AppendLine($"ON [{source.PrimaryKeyConstraint.FileGroup}]");
+                text.AppendLine("GO");
+            }
+
+            // Foreign Keys
+            foreach (var constraint in source.ForeignKeyConstraints)
+            {
+                text.Append($"ALTER TABLE [{source.Schema}].[{source.Name}] ADD CONSTRAINT [{constraint.Name}] ");
+                text.Append("FOREIGN KEY ");
+                text.AppendColunmNames(constraint.SourceTableColumns);
+                text.Append($"REFERENCES [{constraint.DestinationTableSchema}].[{constraint.DestinationTableName}] ");
+                text.AppendColunmNames(constraint.DestinationTableColumnNames);
+                text.AppendLine();
+                text.AppendLine("GO");
+            }
+
+            // Permission grants
+            foreach (var permission in source.PermissionDeclarations)
+            {
+                text.Append($"{permission.StateDescription} {permission.PermissionName} ON ");
+                text.AppendLine($"[{source.Schema}].[{source.Name}] TO [{permission.User}] ");
+                text.AppendLine("GO");
+            }
+
+            return new Table
+            {
+                Name = source.Name,
+                Schema = source.Schema,
+                Text = text.ToString()
+            };
         }
     }
 }

@@ -9,5 +9,7 @@
         public bool Nullable { get; set; }
 
         public DefaultConstraint DefaultConstraint { get; set; }
+
+        public string Collation { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace Rassoodock.SqlServer.Windows.Models.Domain
     {
         public string Name { get; set; }
 
-        public IEnumerable<Column> SourceTableColumn { get; set; }
+        public IEnumerable<Column> SourceTableColumns { get; set; }
 
         public string DestinationTableSchema { get; set; }
 

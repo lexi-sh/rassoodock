@@ -16,6 +16,6 @@
 
         public bool AnsiNulls { get; set; }
 
-        public bool NoCount { get; set; }
+        public string Text { get; set; }
     }
 }
