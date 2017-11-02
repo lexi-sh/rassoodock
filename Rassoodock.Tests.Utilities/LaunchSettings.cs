@@ -4,7 +4,7 @@ using System.Linq;
 using AutoMapper;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Rassoodock.SqlServer.Windows.Mappings;
+using Rassoodock.SqlServer.Mappings;
 
 namespace Rassoodock.Tests.Utilities
 {

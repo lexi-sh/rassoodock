@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Rassoodock.Common.StartupInterfaces;
-using Rassoodock.SqlServer.Windows.Mappings;
+using Rassoodock.SqlServer.Mappings;
 
 namespace Rassoodock.Startup
 {
