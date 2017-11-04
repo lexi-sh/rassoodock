@@ -58,7 +58,7 @@ namespace Rassoodock.SqlServer.Mappings
                 }
                 else
                 {
-                    text.Append($"[{col.DataType.ToSql()} ");
+                    text.Append($"[{col.DataType.ToSql()}] ");
                 }
 
                 // Collation
@@ -86,7 +86,7 @@ namespace Rassoodock.SqlServer.Mappings
             text.Append($") ON [{source.FileGroup}]");
             if (source.RequiresTextImageFileGroup())
             {
-                text.AppendLine($" TEXTIMAGE_ON {source.TextImageFileGroup}");
+                text.AppendLine($" TEXTIMAGE_ON [{source.TextImageFileGroup}]");
             }
             else
             {
@@ -112,12 +112,26 @@ namespace Rassoodock.SqlServer.Mappings
                     SqlServerConstants.Clustered :
                     SqlServerConstants.Nonclustered;
                 text.Append($"ALTER TABLE [{source.Schema}].[{source.Name}]");
-                text.Append($" ADD CONSTRAINT [{source.PrimaryKeyConstraint.Name}] PRIMARY KEY {primaryKeyClusteredString} ");
+                text.Append($" ADD CONSTRAINT [{source.PrimaryKeyConstraint.Name}] PRIMARY KEY {primaryKeyClusteredString}  ");
                 text.AppendColunmNames(source.PrimaryKeyConstraint.Columns);
                 text.AppendLine($"ON [{source.PrimaryKeyConstraint.FileGroup}]");
                 text.AppendLine("GO");
             }
-            
+
+            // Unique Constraints
+            foreach (var constraint in source.UniqueConstraints)
+            {
+                var clusteredString = constraint.Clustered ?
+                    SqlServerConstants.Clustered :
+                    SqlServerConstants.Nonclustered;
+
+                text.Append($"ALTER TABLE [{source.Schema}].[{source.Name}] ADD CONSTRAINT [{constraint.Name}] ");
+                text.Append($"UNIQUE {clusteredString}  ");
+                text.AppendColunmNames(constraint.Columns);
+                text.AppendLine($"ON [{constraint.FileGroup}]");
+                text.AppendLine("GO");
+            }
+
 
             // Indexes
             foreach (var index in source.Indexes)
@@ -126,8 +140,8 @@ namespace Rassoodock.SqlServer.Mappings
                     SqlServerConstants.Clustered :
                     SqlServerConstants.Nonclustered;
 
-                text.Append($"CREATE {clusteredString} INDEX [{index.Name}]");
-                text.Append($" ON [{source.Schema}].[{source.Name}] ");
+                text.Append($"CREATE {clusteredString} INDEX [{index.Name}] ");
+                text.Append($"ON [{source.Schema}].[{source.Name}] ");
 
                 text.AppendColunmNames(index.Columns);
 

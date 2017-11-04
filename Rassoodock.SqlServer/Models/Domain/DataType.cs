@@ -4,71 +4,71 @@ namespace Rassoodock.SqlServer.Models.Domain
 {
     public enum DataType
     {
-        [Sql("BIGINT")]
+        [Sql("bigint")]
         BinInt,
-        [Sql("NUMERIC")]
+        [Sql("numeric")]
         Numeric,
-        [Sql("BIT")]
+        [Sql("bit")]
         Bit,
-        [Sql("SMALLINT")]
+        [Sql("smallint")]
         SmallInt,
-        [Sql("DECIMAL")]
+        [Sql("decimal")]
         Decimal,
-        [Sql("SMALLMONEY")]
+        [Sql("smallmoney")]
         SmallMoney,
-        [Sql("INT")]
+        [Sql("int")]
         Int,
-        [Sql("TINYINT")]
+        [Sql("tinyint")]
         TinyInt,
-        [Sql("MONEY")]
+        [Sql("money")]
         Money,
-        [Sql("FLOAT")]
+        [Sql("float")]
         Float,
-        [Sql("REAL")]
+        [Sql("real")]
         Real,
-        [Sql("DATE")]
+        [Sql("date")]
         Date,
-        [Sql("DATETIMEOFFSET")]
+        [Sql("datetimeoffset")]
         DateTimeOffset,
-        [Sql("DATETIME2")]
+        [Sql("datetime2")]
         DateTime2,
-        [Sql("SMALLDATETIME")]
+        [Sql("smalldatetime")]
         SmallDateTime,
-        [Sql("DATETIME")]
+        [Sql("datetime")]
         DateTime,
-        [Sql("TIME")]
+        [Sql("time")]
         Time,
-        [Sql("CHAR")]
+        [Sql("char")]
         Char,
-        [Sql("VARCHAR")]
+        [Sql("varchar")]
         VarChar,
-        [Sql("TEXT")]
+        [Sql("text")]
         Text,
-        [Sql("NCHAR")]
+        [Sql("nchar")]
         NChar,
-        [Sql("NVARCHAR")]
+        [Sql("nvarchar")]
         NVarChar,
-        [Sql("NTEXT")]
+        [Sql("ntext")]
         NText,
-        [Sql("BINARY")]
+        [Sql("binary")]
         Binary,
-        [Sql("VARBINARY")]
+        [Sql("varbinary")]
         VarBinary,
-        [Sql("IMAGE")]
+        [Sql("image")]
         Image,
-        [Sql("CURSOR")]
+        [Sql("cursor")]
         Cursor,
-        [Sql("ROWVERSION")]
+        [Sql("rowversion")]
         RowVersion,
-        [Sql("HIERARCHYID")]
+        [Sql("hierarchyid")]
         HierarchyId,
-        [Sql("UNIQUEIDENTIFIER")]
+        [Sql("uniqueidentifier")]
         UniqueIdentifier,
-        [Sql("XML")]
+        [Sql("xml")]
         Xml,
-        [Sql("SQLVARIANT")]
+        [Sql("sqlvariant")]
         SqlVariant,
-        [Sql("TABLE")]
+        [Sql("table")]
         Table
 
     }

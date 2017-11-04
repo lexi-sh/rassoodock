@@ -16,9 +16,9 @@ namespace Rassoodock.SqlServer.Extensions
             text.Append("(");
             foreach (var column in columns)
             {
-                text.Append($"[{column}],");
+                text.Append($"[{column}], ");
             }
-            text.Length--;
+            text.Length -= 2;
             text.Append(") ");
         }
     }

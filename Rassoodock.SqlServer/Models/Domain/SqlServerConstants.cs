@@ -4,7 +4,7 @@
     {
         public const string PrimaryFileGroup = "PRIMARY";
 
-        public const string MaxLength = "MAX";
+        public const string MaxLength = "max";
 
         public const string Clustered = "CLUSTERED";
 

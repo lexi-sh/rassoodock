@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Rassoodock.SqlServer.Models.Domain
 {
@@ -8,6 +9,11 @@ namespace Rassoodock.SqlServer.Models.Domain
         {
             FileGroup = SqlServerConstants.PrimaryFileGroup;
             TextImageFileGroup = SqlServerConstants.PrimaryFileGroup;
+            Triggers = Enumerable.Empty<TableTrigger>();
+            Columns = Enumerable.Empty<Column>();
+            ForeignKeyConstraints = Enumerable.Empty<ForeignKeyConstraint>();
+            Indexes = Enumerable.Empty<Index>();
+            PermissionDeclarations = Enumerable.Empty<ObjectPermission>();
         }
 
         public string FileGroup { get; set; }
@@ -23,6 +29,8 @@ namespace Rassoodock.SqlServer.Models.Domain
         public IEnumerable<Column> Columns { get; set; }
 
         public PrimaryKeyConstraint PrimaryKeyConstraint { get; set; }
+
+        public IEnumerable<UniqueConstraint> UniqueConstraints { get; set; }
 
         public IEnumerable<ForeignKeyConstraint> ForeignKeyConstraints { get; set; }
 
