@@ -286,5 +286,102 @@ namespace Rassoodock.SqlServer.Tests.Unit
             tab.Text.ShouldContain("ALTER TABLE [dbo2].[test1] ADD CONSTRAINT [pk] PRIMARY KEY CLUSTERED  ([NotNullable], [Nullable]) ON [PRIMARY]");
 
         }
+
+        [Fact]
+        public void ShouldHaveUniqueConstraint()
+        {
+            var table = new SqlServerTable
+            {
+                Name = "test1",
+                Schema = "dbo2",
+                Columns = new[]
+                {
+                    new Column
+                    {
+                        DataType = new DataTypeCls
+                        {
+                            DataType = DataType.NVarChar,
+                            Length = SqlServerConstants.MaxLength
+                        },
+                        Name = "NotNullable",
+                        Nullable = false
+                    },
+                    new Column
+                    {
+                        DataType = new DataTypeCls
+                        {
+                            DataType = DataType.Int
+                        },
+                        Name = "Nullable",
+                        Nullable = true
+                    }
+                },
+                
+            };
+
+            table.UniqueConstraints = new[]
+            {
+                new UniqueConstraint
+                {
+                    Name = "uq",
+                    Clustered = false,
+                    Columns = table.Columns,
+                    FileGroup = "else"
+                }
+            };
+
+            var converter = new TableTypeConverter();
+            var tab = converter.Convert(table, null, null);
+
+            tab.Text.ShouldContain("ALTER TABLE [dbo2].[test1] ADD CONSTRAINT [uq] UNIQUE NONCLUSTERED  ([NotNullable], [Nullable]) ON [else]");
+
+        }
+
+        [Fact]
+        public void ShouldHavePermission()
+        {
+            var table = new SqlServerTable
+            {
+                Name = "test1",
+                Schema = "dbo2",
+                Columns = new[]
+                {
+                    new Column
+                    {
+                        DataType = new DataTypeCls
+                        {
+                            DataType = DataType.NVarChar,
+                            Length = SqlServerConstants.MaxLength
+                        },
+                        Name = "NotNullable",
+                        Nullable = false
+                    },
+                    new Column
+                    {
+                        DataType = new DataTypeCls
+                        {
+                            DataType = DataType.Int
+                        },
+                        Name = "Nullable",
+                        Nullable = true
+                    }
+                },
+                PermissionDeclarations = new []
+                {
+                    new ObjectPermission
+                    {
+                        PermissionName = "SELECT",
+                        StateDescription = "GRANT",
+                        User = "deffff"
+                    }
+                }
+            };
+
+            var converter = new TableTypeConverter();
+            var tab = converter.Convert(table, null, null);
+
+            tab.Text.ShouldContain("GRANT SELECT ON  [dbo2].[test1] TO [deffff]");
+
+        }
     }
 }

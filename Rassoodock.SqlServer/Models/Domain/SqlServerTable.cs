@@ -14,6 +14,7 @@ namespace Rassoodock.SqlServer.Models.Domain
             ForeignKeyConstraints = Enumerable.Empty<ForeignKeyConstraint>();
             Indexes = Enumerable.Empty<Index>();
             PermissionDeclarations = Enumerable.Empty<ObjectPermission>();
+            UniqueConstraints = Enumerable.Empty<UniqueConstraint>();
         }
 
         public string FileGroup { get; set; }

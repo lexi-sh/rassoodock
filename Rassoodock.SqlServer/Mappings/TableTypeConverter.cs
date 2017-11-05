@@ -175,7 +175,7 @@ namespace Rassoodock.SqlServer.Mappings
             // Permission grants
             foreach (var permission in source.PermissionDeclarations)
             {
-                text.Append($"{permission.StateDescription} {permission.PermissionName} ON ");
+                text.Append($"{permission.StateDescription} {permission.PermissionName} ON  ");
                 text.AppendLine($"[{source.Schema}].[{source.Name}] TO [{permission.User}] ");
                 text.AppendLine("GO");
             }
