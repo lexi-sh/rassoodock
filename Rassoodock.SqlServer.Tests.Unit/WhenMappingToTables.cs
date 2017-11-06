@@ -383,5 +383,55 @@ namespace Rassoodock.SqlServer.Tests.Unit
             tab.Text.ShouldContain("GRANT SELECT ON  [dbo2].[test1] TO [deffff]");
 
         }
+
+        [Fact]
+        public void ShouldHaveForeignKey()
+        {
+            var table = new SqlServerTable
+            {
+                Name = "test1",
+                Schema = "dbo2",
+                Columns = new[]
+                {
+                    new Column
+                    {
+                        DataType = new DataTypeCls
+                        {
+                            DataType = DataType.NVarChar,
+                            Length = SqlServerConstants.MaxLength
+                        },
+                        Name = "NotNullable",
+                        Nullable = false
+                    },
+                    new Column
+                    {
+                        DataType = new DataTypeCls
+                        {
+                            DataType = DataType.Int
+                        },
+                        Name = "Nullable",
+                        Nullable = true
+                    }
+                }
+            };
+
+            table.ForeignKeyConstraints = new[]
+            {
+                new ForeignKeyConstraint
+                {
+                    Name = "fk",
+                    DestinationTableColumnNames = new[] {"abc", "cbed"},
+                    DestinationTableSchema = "dbo",
+                    DestinationTableName = "awe",
+                    SourceTableColumns = table.Columns
+                }
+            };
+
+            var converter = new TableTypeConverter();
+            var tab = converter.Convert(table, null, null);
+
+            tab.Text.ShouldContain("ALTER TABLE [dbo2].[test1] ADD CONSTRAINT [fk] FOREIGN KEY ([NotNullable], [Nullable]) REFERENCES [dbo].[awe] ([abc], [cbed])");
+
+        }
     }
 }
