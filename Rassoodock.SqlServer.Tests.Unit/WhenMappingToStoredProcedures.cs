@@ -1,9 +1,9 @@
-﻿using Rassoodock.SqlServer.Windows.Mappings;
-using Rassoodock.SqlServer.Windows.Models;
+﻿using Rassoodock.SqlServer.Mappings;
+using Rassoodock.SqlServer.Models.SqlModels;
 using Shouldly;
 using Xunit;
 
-namespace Rassoodock.SqlServer.Windows.Tests.Unit
+namespace Rassoodock.SqlServer.Tests.Unit
 {
     public class WhenMappingToStoredProcedures
     {

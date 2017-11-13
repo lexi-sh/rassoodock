@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Rassoodock.Common.StartupInterfaces;
 using Rassoodock.Databases;
-using Rassoodock.SqlServer.Windows.Models;
+using Rassoodock.SqlServer.Models.SqlModels;
 
-namespace Rassoodock.SqlServer.Windows.Mappings
+namespace Rassoodock.SqlServer.Mappings
 {
     public class RoutinesSqlModelMapping : ICreateMappings
     {

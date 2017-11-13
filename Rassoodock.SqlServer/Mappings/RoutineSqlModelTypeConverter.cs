@@ -2,9 +2,9 @@
 using System.Text.RegularExpressions;
 using AutoMapper;
 using Rassoodock.Databases;
-using Rassoodock.SqlServer.Windows.Models;
+using Rassoodock.SqlServer.Models.SqlModels;
 
-namespace Rassoodock.SqlServer.Windows.Mappings
+namespace Rassoodock.SqlServer.Mappings
 {
     public class RoutineSqlModelTypeConverter : ITypeConverter<RoutinesSqlModel, StoredProcedure>
     {

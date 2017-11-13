@@ -10,9 +10,4 @@
     <ProjectReference Include="..\Rassoodock.Common\Rassoodock.Common.csproj" />
     <ProjectReference Include="..\Rassoodock.Databases.Services\Rassoodock.Databases.Services.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Extensions.CommandLineUtils">
-      <HintPath>..\..\..\Users\chris.jones.POWERDMS\.nuget\packages\microsoft.extensions.commandlineutils\1.1.1\lib\netstandard1.3\Microsoft.Extensions.CommandLineUtils.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 </Project>

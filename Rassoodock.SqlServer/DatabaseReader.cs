@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using AutoMapper;
 using Dapper;
 using Rassoodock.Common;
 using Rassoodock.Databases;
-using Rassoodock.SqlServer.Windows.Models;
+using Rassoodock.SqlServer.Models.SqlModels;
 
-namespace Rassoodock.SqlServer.Windows
+namespace Rassoodock.SqlServer
 {
     public class DatabaseReader : IDatabaseReader
     {

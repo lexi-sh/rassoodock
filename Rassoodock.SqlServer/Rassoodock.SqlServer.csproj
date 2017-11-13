@@ -4,7 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
-    <PackageReference Include="dapper" Version="1.50.2" />
+    <PackageReference Include="Dapper" Version="1.50.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rassoodock.Common\Rassoodock.Common.csproj" />

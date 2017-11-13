@@ -1,5 +1,5 @@
 ﻿using Rassoodock.Common;
-using Rassoodock.SqlServer.Windows;
+using Rassoodock.SqlServer;
 
 namespace Rassoodock.Databases.Services
 {

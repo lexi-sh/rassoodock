@@ -1,11 +1,11 @@
 ﻿namespace Rassoodock.Databases
 {
-    public interface ISavableDatabaseObject
+    public abstract class SavableDatabaseObject
     {
-        string Text { get; }
+        public string Text { get; set; }
 
-        string Schema { get; }
+        public string Schema { get; set; }
 
-        string Name { get; }
+        public string Name { get; set; }
     }
 }

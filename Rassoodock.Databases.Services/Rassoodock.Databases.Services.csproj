@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rassoodock.Databases\Rassoodock.Databases.csproj" />
-    <ProjectReference Include="..\Rassoodock.SqlServer.Windows\Rassoodock.SqlServer.Windows.csproj" />
+    <ProjectReference Include="..\Rassoodock.SqlServer\Rassoodock.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>
