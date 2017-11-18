@@ -114,6 +114,7 @@ namespace Rassoodock.SqlServer.Mappings
                 text.Append($"ALTER TABLE [{source.Schema}].[{source.Name}]");
                 text.Append($" ADD CONSTRAINT [{source.PrimaryKeyConstraint.Name}] PRIMARY KEY {primaryKeyClusteredString}  ");
                 text.AppendColunmNames(source.PrimaryKeyConstraint.Columns);
+                text.AppendWithForIndex(source.PrimaryKeyConstraint);
                 text.AppendLine($"ON [{source.PrimaryKeyConstraint.FileGroup}]");
                 text.AppendLine("GO");
             }
@@ -155,7 +156,7 @@ namespace Rassoodock.SqlServer.Mappings
                 {
                     text.Append($"WHERE ({index.FilterDefinition})");
                 }
-
+                text.AppendWithForIndex(index);
                 text.AppendLine($"ON [{index.FileGroup}]");
                 text.AppendLine("GO");
             }

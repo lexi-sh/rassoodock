@@ -7,6 +7,8 @@ namespace Rassoodock.SqlServer.Models.Domain
         public Index()
         {
             FileGroup = SqlServerConstants.PrimaryFileGroup;
+            AllowRowLocks = true;
+            AllowPageLocks = true;
         }
 
         public string Name { get; set; }
@@ -20,5 +22,17 @@ namespace Rassoodock.SqlServer.Models.Domain
         public string FilterDefinition { get; set; }
 
         public string FileGroup { get; set; }
+
+        public bool PadIndex { get; set; }
+
+        public bool StatisticsNoRecompute { get; set; }
+
+        public bool IgnoreDuplicateKey { get; set; }
+
+        public bool AllowRowLocks { get; set; }
+
+        public bool AllowPageLocks { get; set; }
+
+        public int FillFactor { get; set; }
     }
 }
