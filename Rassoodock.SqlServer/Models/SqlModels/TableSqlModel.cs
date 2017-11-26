@@ -6,7 +6,7 @@ namespace Rassoodock.SqlServer.Models.SqlModels
         
         public string TextImageFileGroup { get; set; }
         
-        public string Schema { get; set; }
+        public string SchemaName { get; set; }
         
         public string Name { get; set; }
     }
