@@ -5,4 +5,4 @@ dist: trusty
 script:
  - dotnet restore
  - dotnet build
- - test.sh
+ - ./test.sh
