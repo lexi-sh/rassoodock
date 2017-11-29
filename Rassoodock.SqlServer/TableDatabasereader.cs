@@ -44,8 +44,6 @@ namespace Rassoodock.SqlServer
                     INNER JOIN sys.indexes i ON t.object_id=i.object_id
                     INNER JOIN filegroups tif ON i.data_space_id = tif.data_space_id AND tif.type_desc = 'LOB_DATA'
                     INNER JOIN filegroups f ON i.data_space_id = f.data_space_id AND F.type_desc = 'IN_ROW_DATA'");
-
-                
             }
         }
     }
