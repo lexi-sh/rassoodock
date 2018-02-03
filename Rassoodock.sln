@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{B066
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Cli", "Rassoodock.Cli\Rassoodock.Cli.csproj", "{7B7FF312-CDA7-42D8-A7E4-D6E7DF881378}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Cli.Tests", "Rassoodock.Cli.Tests\Rassoodock.Cli.Tests.csproj", "{E663FF08-0AB1-4FAF-835C-FDF26D1EA48B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Cli.Tests.Integration", "Rassoodock.Cli.Tests.Integration\Rassoodock.Cli.Tests.Integration.csproj", "{E663FF08-0AB1-4FAF-835C-FDF26D1EA48B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.Databases.Services", "Rassoodock.Databases.Services\Rassoodock.Databases.Services.csproj", "{B8EA1AD3-C1D0-45FC-BF54-6E09B86994DF}"
 EndProject
