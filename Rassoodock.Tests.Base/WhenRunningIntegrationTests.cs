@@ -15,13 +15,12 @@ namespace Rassoodock.Tests.Base
         public WhenRunningIntegrationTests()
         {
             
-            // if (Environment.GetEnvironmentVariable(EnvironmentVariableName) == null)
-            // {
-            //     Environment.SetEnvironmentVariable(
-            //         EnvironmentVariableName,
-            //         "Data Source=localhost;Integrated Security=True;");
-            // }   
-            Console.WriteLine("Env var: " + Environment.GetEnvironmentVariable(EnvironmentVariableName));
+            if (Environment.GetEnvironmentVariable(EnvironmentVariableName) == null)
+            {
+                Environment.SetEnvironmentVariable(
+                    EnvironmentVariableName,
+                    "Data Source=localhost;Integrated Security=True;");
+            }
             Database = new LinkedDatabase
             {
                 DatabaseType = DatabaseType.SqlServer,
