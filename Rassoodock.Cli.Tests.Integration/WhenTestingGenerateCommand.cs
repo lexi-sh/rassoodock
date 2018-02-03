@@ -8,7 +8,7 @@ using Rassoodock.Tests.Base;
 using Shouldly;
 using Xunit;
 
-namespace Rassoodock.Cli.Tests
+namespace Rassoodock.Cli.Tests.Integration
 {
     public class WhenTestingGenerateCommand : WhenRunningIntegrationTests
     {

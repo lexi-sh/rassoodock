@@ -10,7 +10,7 @@ namespace Rassoodock.Tests.Base
     {
         protected readonly LinkedDatabase Database;
 
-        private const string EnvironmentVariableName = "TestWindowsSqlServer";
+        private const string EnvironmentVariableName = "TestSqlServer";
 
         public WhenRunningIntegrationTests()
         {
@@ -19,7 +19,7 @@ namespace Rassoodock.Tests.Base
                 Environment.SetEnvironmentVariable(
                     EnvironmentVariableName,
                     "Data Source=localhost;Integrated Security=True;");
-            }
+            }   
 
             Database = new LinkedDatabase
             {
