@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock", "Rassoodock\Rassoodock.csproj", "{550ACB89-F37B-4A0C-BB9D-453C9DFC6091}"
 EndProject
@@ -30,6 +30,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Tests.Integration", "Rassoodock.SqlServer.Tests.Integration\Rassoodock.SqlServer.Tests.Integration.csproj", "{30A529C5-ED7B-4586-BF1C-3CA2891C2CDF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Tests.Unit", "Rassoodock.SqlServer.Tests.Unit\Rassoodock.SqlServer.Tests.Unit.csproj", "{C467AE70-184D-4253-9121-9A02CA448529}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.DifferenceEngine", "Rassoodock.DifferenceEngnie\Rassoodock.DifferenceEngine.csproj", "{20A65A50-4698-480C-BFC7-C9B019D63EF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{C467AE70-184D-4253-9121-9A02CA448529}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C467AE70-184D-4253-9121-9A02CA448529}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C467AE70-184D-4253-9121-9A02CA448529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A65A50-4698-480C-BFC7-C9B019D63EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A65A50-4698-480C-BFC7-C9B019D63EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A65A50-4698-480C-BFC7-C9B019D63EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A65A50-4698-480C-BFC7-C9B019D63EF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{9774F94D-B596-42A0-9FAD-3AFF626DCB65} = {20899845-314F-42B2-8D91-49C64A8095E1}
 		{30A529C5-ED7B-4586-BF1C-3CA2891C2CDF} = {20899845-314F-42B2-8D91-49C64A8095E1}
 		{C467AE70-184D-4253-9121-9A02CA448529} = {20899845-314F-42B2-8D91-49C64A8095E1}
+		{20A65A50-4698-480C-BFC7-C9B019D63EF9} = {400524E3-8564-4E2B-A3E8-04106567F88E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C32646F-73CA-409F-B2AC-A3FF0669EE4E}
