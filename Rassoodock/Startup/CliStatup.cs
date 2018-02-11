@@ -16,7 +16,7 @@ namespace Rassoodock.Startup
             app.Command("link", new LinkCommand().GenerateCommand());
             app.Command("link-config", new LinkConfigCommand().GenerateCommand());
             app.Command("generate", new GenerateCliCommand().GenerateCommand());
-            app.Command("apply", new ApplyCommand().GenerateCommand());
+            //app.Command("apply", new ApplyCommand().GenerateCommand());
 
             app.Execute(args);
         }

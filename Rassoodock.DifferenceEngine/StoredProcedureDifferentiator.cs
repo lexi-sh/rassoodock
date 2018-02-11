@@ -20,9 +20,8 @@ namespace Rassoodock.DifferenceEngine
 
             var retString = new StringBuilder();
             retString.AppendLine("------------------");
-            retString.AppendLine("Rassoodock: Stored Procedures");
+            retString.AppendLine("---Rassoodock: Stored Procedures---");
             retString.AppendLine("------------------");
-
 
             foreach (var obj in objects)
             {

@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Tests.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.SqlServer.Tests.Unit", "Rassoodock.SqlServer.Tests.Unit\Rassoodock.SqlServer.Tests.Unit.csproj", "{C467AE70-184D-4253-9121-9A02CA448529}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.DifferenceEngine", "Rassoodock.DifferenceEngnie\Rassoodock.DifferenceEngine.csproj", "{20A65A50-4698-480C-BFC7-C9B019D63EF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.DifferenceEngine", "Rassoodock.DifferenceEngine\Rassoodock.DifferenceEngine.csproj", "{20A65A50-4698-480C-BFC7-C9B019D63EF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
