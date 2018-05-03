@@ -50,38 +50,8 @@ namespace Rassoodock.SqlServer.Mappings
             text.AppendLine("(");
             foreach (var col in source.Columns)
             {
-                // Datatype
-                text.Append($"[{col.Name}] ");
-                if (!string.IsNullOrWhiteSpace(col.DataType.Length))
-                {
-                    text.Append($"[{col.DataType.ToSql()}({col.DataType.Length})] ");
-                }
-                else
-                {
-                    text.Append($"[{col.DataType.ToSql()}] ");
-                }
-
-                // Collation
-                if (!string.IsNullOrWhiteSpace(col.Collation))
-                {
-                    text.Append($"COLLATE {col.Collation}");
-                }
-
-                // Nullable
-                if (!col.Nullable)
-                {
-                    text.Append("NOT ");
-                }
-                text.Append("NULL");
-
-                if (col.DefaultConstraint != null)
-                {
-                    text.AppendLine($" CONSTRAINT [{col.DefaultConstraint.Name}] DEFAULT ({col.DefaultConstraint.DefaultVlaue})");
-                }
-                else
-                {
-                    text.AppendLine();
-                }
+               text.AppendColumn(col);
+               text.AppendLine();
             }
             text.Append($") ON [{source.FileGroup}]");
             if (source.RequiresTextImageFileGroup())

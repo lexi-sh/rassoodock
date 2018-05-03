@@ -22,6 +22,38 @@ namespace Rassoodock.SqlServer.Extensions
             text.Append(") ");
         }
 
+        public static void AppendColumn(this StringBuilder text, Column col)
+        {
+            // Datatype
+            text.Append($"[{col.Name}] ");
+            if (!string.IsNullOrWhiteSpace(col.DataType.Length))
+            {
+                text.Append($"[{col.DataType.ToSql()}({col.DataType.Length})] ");
+            }
+            else
+            {
+                text.Append($"[{col.DataType.ToSql()}] ");
+            }
+
+            // Collation
+            if (!string.IsNullOrWhiteSpace(col.Collation))
+            {
+                text.Append($"COLLATE {col.Collation}");
+            }
+
+            // Nullable
+            if (!col.Nullable)
+            {
+                text.Append("NOT ");
+            }
+            text.Append("NULL");
+
+            if (col.DefaultConstraint != null)
+            {
+                text.Append($" CONSTRAINT [{col.DefaultConstraint.Name}] DEFAULT ({col.DefaultConstraint.DefaultVlaue})");
+            }
+        }
+
         public static void AppendWithForIndex(this StringBuilder text, Index index) 
         {
             var temporarySb = new StringBuilder();

@@ -9,4 +9,8 @@
     <ProjectReference Include="..\Rassoodock.SqlServer\Rassoodock.SqlServer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="morelinq" Version="2.10.0" />
+  </ItemGroup>
+
 </Project>
