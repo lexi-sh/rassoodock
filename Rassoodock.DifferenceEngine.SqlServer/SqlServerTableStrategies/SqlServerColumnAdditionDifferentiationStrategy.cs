@@ -7,13 +7,13 @@ using Rassoodock.SqlServer.Models.Domain;
 
 namespace Rassoodock.DifferenceEngine.SqlServer.SqlServerTableStrategies
 {
-    public class SqlServerColumnDifferentiationStrategy
+    public class SqlServerColumnAdditionDifferentiationStrategy
     {
         private readonly SqlServerTable _Live;
 
         private readonly SqlServerTable _SourceControl;
 
-        public SqlServerColumnDifferentiationStrategy(SqlServerTable sourceControl, SqlServerTable live)
+        public SqlServerColumnAdditionDifferentiationStrategy(SqlServerTable sourceControl, SqlServerTable live)
         {
             _SourceControl = sourceControl;
             _Live = live;
@@ -25,16 +25,19 @@ namespace Rassoodock.DifferenceEngine.SqlServer.SqlServerTableStrategies
             var sb = new StringBuilder();
             if (existsInSourceControlAndNotLive.Any()) 
             {
-                sb.AppendLine($"ALTER TABLE [{_SourceControl.Schema}].[{_SourceControl.Name}] ADD ");
+                sb.Append($"ALTER TABLE [{_SourceControl.Schema}].[{_SourceControl.Name}] ADD ");
                 foreach (var col in existsInSourceControlAndNotLive)
                 {
+                    sb.AppendLine();
+                    sb.Append("\t");
                     sb.AppendColumn(col);
-                    sb.AppendLine(",");
+                    sb.Append(",");
                 }
                 sb.Length--;
+                sb.AppendLine(";");
                 sb.AppendLine("GO");
             }
-            return "";
+            return sb.ToString();
         }
     }
 }

@@ -224,15 +224,18 @@ namespace Rassoodock.SqlServer.Tests.Unit
                         Nullable = true
                     }
                 },
-                Triggers = new [] { new TableTrigger
-                {
-                  Schema  = "dbo",
-                  Name = "trig1",
-                  Action = TriggerAction.Insert,
-                  TableName = "test1",
-                  TableSchema = "dbo2",
-                  Text = "SELECT 1233"
-                }}
+                Triggers = new [] 
+                { 
+                    new TableTrigger
+                    {
+                        Schema  = "dbo",
+                        Name = "trig1",
+                        Action = TriggerAction.Insert,
+                        TableName = "test1",
+                        TableSchema = "dbo2",
+                        Text = "SELECT 1233"
+                    }
+                }
             };
 
             var converter = new TableTypeConverter();
