@@ -7,7 +7,7 @@ using Rassoodock.SqlServer.Models.Domain;
 
 namespace Rassoodock.DifferenceEngine.SqlServer.SqlServerTableStrategies
 {
-    public class SqlServerColumnAdditionDifferentiationStrategy
+    public class SqlServerColumnAdditionDifferentiationStrategy : SqlServerDifferentiationStrategyBase
     {
         private readonly SqlServerTable _Live;
 
@@ -19,7 +19,7 @@ namespace Rassoodock.DifferenceEngine.SqlServer.SqlServerTableStrategies
             _Live = live;
         }
 
-        public string GetDifferenceAlterString()
+        public override string GetDifferenceAlterString()
         {
             var existsInSourceControlAndNotLive = _SourceControl.Columns.ExceptBy(_Live.Columns, x => x.Name);
             var sb = new StringBuilder();
