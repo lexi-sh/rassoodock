@@ -2,13 +2,14 @@
 using System.Text.RegularExpressions;
 using AutoMapper;
 using Rassoodock.Databases;
+using Rassoodock.SqlServer.Models.Code;
 using Rassoodock.SqlServer.Models.SqlModels;
 
 namespace Rassoodock.SqlServer.Mappings
 {
-    public class RoutineSqlModelTypeConverter : ITypeConverter<RoutinesSqlModel, StoredProcedure>
+    public class RoutineSqlModelTypeConverter : ITypeConverter<RoutinesSqlModel, SqlServerStoredProcedure>
     {
-        public StoredProcedure Convert(RoutinesSqlModel source, StoredProcedure destination, ResolutionContext context)
+        public SqlServerStoredProcedure Convert(RoutinesSqlModel source, SqlServerStoredProcedure destination, ResolutionContext context)
         {
             /* In SqlServer, the routine definition needs to like this:
              *  SET QUOTED_IDENTIFIER ON/OFF
@@ -48,11 +49,11 @@ namespace Rassoodock.SqlServer.Mappings
                    text + (textEndsWithNewLine ? string.Empty : Environment.NewLine) +
                    "GO" + Environment.NewLine;
 
-            return new StoredProcedure
+            return new SqlServerStoredProcedure
             {
-                Name = source.Specific_Name,
-                Schema = source.Specific_Schema,
-                Text = text
+                ObjectName = source.Specific_Name,
+                SchemeName = source.Specific_Schema,
+                FunctionDefinition = text
             };
         }
 

@@ -5,7 +5,7 @@ using MoreLinq;
 using Rassoodock.SqlServer.Extensions;
 using Rassoodock.SqlServer.Models.Domain;
 
-namespace Rassoodock.DifferenceEngine.SqlServer.SqlServerTableStrategies
+namespace Rassoodock.DifferenceEngine.SqlServer.SqlServerStrategies
 {
     public class SqlServerColumnAdditionDifferentiationStrategy : SqlServerDifferentiationStrategyBase
     {

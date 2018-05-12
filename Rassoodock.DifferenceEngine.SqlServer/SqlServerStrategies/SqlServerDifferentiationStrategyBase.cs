@@ -1,4 +1,4 @@
-namespace Rassoodock.DifferenceEngine.SqlServer.SqlServerTableStrategies
+namespace Rassoodock.DifferenceEngine.SqlServer.SqlServerStrategies
 {
     public abstract class SqlServerDifferentiationStrategyBase
     {

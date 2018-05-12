@@ -4,6 +4,7 @@ using AutoMapper;
 using Dapper;
 using Rassoodock.Common;
 using Rassoodock.Databases;
+using Rassoodock.SqlServer.Models.Code;
 using Rassoodock.SqlServer.Models.SqlModels;
 
 namespace Rassoodock.SqlServer
@@ -34,7 +35,8 @@ namespace Rassoodock.SqlServer
                             ON OBJECT_NAME(s.object_id) = r.SPECIFIC_NAME
                     WHERE ROUTINE_TYPE = 'PROCEDURE'");
                 
-                return Mapper.Map<IEnumerable<StoredProcedure>>(sqlModels);
+                return Mapper.Map<IEnumerable<StoredProcedure>>(
+                    Mapper.Map<IEnumerable<SqlServerStoredProcedure>>(sqlModels));
             }
         }
     }
