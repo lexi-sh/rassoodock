@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 using Rassoodock.SqlServer.Models.Domain;
-using Rassoodock.DifferenceEngine.SqlServer.SqlServerTableStrategies;
+using Rassoodock.DifferenceEngine.SqlServer.SqlServerStrategies;
 using Shouldly;
 
 namespace Rassoodock.DifferenceEngine.SqlServer.Tests.Unit
