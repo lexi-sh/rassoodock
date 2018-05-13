@@ -11,7 +11,7 @@ namespace Rassoodock.SqlServer.Mappings
     {
         public SqlServerStoredProcedure Convert(RoutinesSqlModel source, SqlServerStoredProcedure destination, ResolutionContext context)
         {
-            /* In SqlServer, the routine definition needs to like this:
+            /* In SqlServer, the routine definition returns like this:
              *  SET QUOTED_IDENTIFIER ON/OFF
              *  GO
              *  SET ANSI_NULLS ON/OFF
@@ -52,7 +52,7 @@ namespace Rassoodock.SqlServer.Mappings
             return new SqlServerStoredProcedure
             {
                 ObjectName = source.Specific_Name,
-                SchemeName = source.Specific_Schema,
+                SchemaName = source.Specific_Schema,
                 FunctionDefinition = text
             };
         }

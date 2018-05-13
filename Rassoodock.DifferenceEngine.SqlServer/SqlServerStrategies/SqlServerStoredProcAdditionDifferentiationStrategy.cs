@@ -23,7 +23,8 @@ namespace Rassoodock.DifferenceEngine.SqlServer.SqlServerStrategies
         public override string GetDifferenceAlterString()
         {
             var sb = new StringBuilder();
-            var existsInSourceControlAndNotLive = _SourceControl.ExceptBy(_Live, x => $"[{x.ObjectName}].[{x.SchemeName}]");
+            var existsInSourceControlAndNotLive = _SourceControl.ExceptBy(_Live, x => $"[{x.ObjectName}].[{x.SchemaName}]");
+
             foreach(var proc in existsInSourceControlAndNotLive)
             {
                 sb.AppendLine(proc.GetApplicationCreationText());

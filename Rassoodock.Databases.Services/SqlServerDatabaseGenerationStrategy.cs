@@ -7,10 +7,11 @@ namespace Rassoodock.Databases.Services
     {
         public override Database GetDatabase(LinkedDatabase database)
         {
-            var sqlServerRepository = new DatabaseReader(database);
+            var sqlServerRepository = new SqlServerDatabaseReader(database);
             return new Database
             {
-                StoredProcedures = sqlServerRepository.GetStoredProcedures()
+                StoredProcedures = sqlServerRepository.GetStoredProcedures(),
+                Tables = sqlServerRepository.GetTables()
             };
         }
     }

@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rassoodock.Databases\Rassoodock.Databases.csproj" />
+    <ProjectReference Include="..\Rassoodock.DifferenceEngine.SqlServer\Rassoodock.DifferenceEngine.SqlServer.csproj" />
+    <ProjectReference Include="..\Rassoodock.FileReader.SqlServer\Rassoodock.FileReader.SqlServer.csproj" />
     <ProjectReference Include="..\Rassoodock.SqlServer\Rassoodock.SqlServer.csproj" />
   </ItemGroup>
 

@@ -22,8 +22,11 @@ namespace Rassoodock.DifferenceEngine.SqlServer
             {
                 new SqlServerStoredProcAdditionDifferentiationStrategy(objectsFromFileSystem, objectsInDb)
             };
-
             
+            foreach (var strategy in strategies)
+            {
+                sb.AppendLine(strategy.GetDifferenceAlterString());
+            }
 
             return sb.ToString();
         }

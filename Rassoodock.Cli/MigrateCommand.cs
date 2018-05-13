@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.CommandLineUtils;
@@ -9,23 +9,24 @@ using Rassoodock.Databases.Services;
 
 namespace Rassoodock.Cli
 {
-    public class GenerateCliCommand : ICommandExecution
+    public class MigrateCommand : ICommandExecution
     {
         public Action<CommandLineApplication> GenerateCommand()
         {
             return command =>
             {
                 command.Description =
-                    "Generate the scripts in the folder to be committed at a later time.";
+                    "Generate a migration script to apply to your database from the source control version. Writes to system out.";
                 command.HelpOption("-?|-h|--help");
+
                 var databaseName = command.Argument("name",
                     "The named key to reference this database for further usage (e.g. some-sql-server)");
-
-                command.OnExecute(() => WriteDatabaseToFolder(databaseName.Value));
+                
+                command.OnExecute(() => GenerateMigrationScript(databaseName.Value));
             };
         }
 
-        public int WriteDatabaseToFolder(string databaseName)
+        private int GenerateMigrationScript(string databaseName)
         {
             try
             {
@@ -33,7 +34,7 @@ namespace Rassoodock.Cli
                 var directory = Directory.GetCurrentDirectory();
                 var fileName = Path.Combine(directory, $"{databaseName}.json");
                 var folderName = Path.Combine(directory, databaseName);
-                
+
                 if (!Directory.Exists(folderName))
                 {
                     Console.WriteLine("Database not found!");
@@ -63,7 +64,7 @@ namespace Rassoodock.Cli
                         }
                         File.WriteAllText(sqlFileName, savableObject.Text);
                     }
-                    
+
                 }
 
                 return 0;

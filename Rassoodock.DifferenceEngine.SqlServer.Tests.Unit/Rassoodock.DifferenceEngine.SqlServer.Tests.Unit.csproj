@@ -15,7 +15,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Rassoodock.SqlServer\Rassoodock.SqlServer.csproj" />
     <ProjectReference Include="..\Rassoodock.DifferenceEngine.SqlServer\Rassoodock.DifferenceEngine.SqlServer.csproj" />
+    <ProjectReference Include="..\Rassoodock.SqlServer\Rassoodock.SqlServer.csproj" />
   </ItemGroup>
 </Project>

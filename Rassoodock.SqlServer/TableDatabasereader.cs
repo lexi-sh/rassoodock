@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using AutoMapper;
 using Dapper;
 using Rassoodock.Common;
-using Rassoodock.Databases;
 using Rassoodock.SqlServer.Models.Domain;
 using Rassoodock.SqlServer.Models.SqlModels;
 
@@ -18,9 +17,9 @@ namespace Rassoodock.SqlServer
             _database = database;
         }
 
-        public IEnumerable<Table> GetTables() 
+        public IEnumerable<SqlServerTable> GetTables() 
         {
-            return Mapper.Map<IEnumerable<Table>>(System.Linq.Enumerable.Empty<SqlServerTable>());
+            return Mapper.Map<IEnumerable<SqlServerTable>>(GetBaseTableInfo());
         }
 
         public IEnumerable<TableSqlModel> GetBaseTableInfo()

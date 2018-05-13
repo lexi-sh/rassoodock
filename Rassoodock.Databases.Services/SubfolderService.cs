@@ -17,5 +17,17 @@ namespace Rassoodock.Databases.Services
             }
             return storedProcFolderName;
         }
+
+        public static string GetTableFolder(LinkedDatabase database)
+        {
+            var directory = Directory.GetCurrentDirectory();
+            var folderName = Path.Combine(directory, database.Name);
+            var tableFolderName = Path.Combine(folderName, "Tables");
+            if (!Directory.Exists(tableFolderName))
+            {
+                Directory.CreateDirectory(tableFolderName);
+            }
+            return tableFolderName;
+        }
     }
 }

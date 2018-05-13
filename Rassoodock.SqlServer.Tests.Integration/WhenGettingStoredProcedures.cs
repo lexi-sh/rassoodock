@@ -30,7 +30,7 @@ namespace Rassoodock.SqlServer.Tests.Integration
         [Fact]
         public void ShouldBeAbleToGetStoredProceduresForWindowsSqlServer()
         {
-            var dbReader = new DatabaseReader(Database);
+            var dbReader = new SqlServerDatabaseReader(Database);
 
             var storedProc1 = new StoredProcedure
             {
@@ -63,7 +63,7 @@ namespace Rassoodock.SqlServer.Tests.Integration
         [Fact]
         public void ShouldNotCutOffStoredProcAfter8000Characters()
         {
-            var dbReader = new DatabaseReader(Database);
+            var dbReader = new SqlServerDatabaseReader(Database);
 
             var storedProc1 = new StoredProcedure
             {
@@ -83,7 +83,7 @@ namespace Rassoodock.SqlServer.Tests.Integration
         [Fact]
         public void ShouldSetAnsiNullsAndQuotedIdentifierCorrectly()
         {
-            var dbReader = new DatabaseReader(Database);
+            var dbReader = new SqlServerDatabaseReader(Database);
 
             var procedure = new StoredProcedure
             {

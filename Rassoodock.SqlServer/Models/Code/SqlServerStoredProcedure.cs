@@ -1,18 +1,31 @@
+using System;
 using System.Text.RegularExpressions;
 
 namespace Rassoodock.SqlServer.Models.Code
 {
-    public class SqlServerStoredProcedure : ICode
+    public class SqlServerStoredProcedure : ICode, IEquatable<SqlServerStoredProcedure>
     {
-        public string SchemeName { get; set; }
+        public string SchemaName { get; set; }
 
         public string ObjectName { get; set; }
 
         public string FunctionDefinition { get; set; }
 
+        public bool Equals(SqlServerStoredProcedure other)
+        {
+            return SchemaName == other?.SchemaName
+                && ObjectName == other?.ObjectName
+                && FunctionDefinition == other?.FunctionDefinition;
+        }
+
+        public override int GetHashCode()
+        {
+            return string.Concat(SchemaName, ObjectName, FunctionDefinition).GetHashCode();
+        }
+
         public string GetApplicationAlteringText()
         {
-            return Regex.Replace(FunctionDefinition, "create", "alter", RegexOptions.IgnoreCase);
+            return Regex.Replace(FunctionDefinition, "create", "ALTER", RegexOptions.IgnoreCase);
         }
 
         public string GetApplicationCreationText()
@@ -22,10 +35,10 @@ namespace Rassoodock.SqlServer.Models.Code
 
         public string GetApplicationDeletionText()
         {
-            return $"DELETE PROCEDURE [{SchemeName}].[{ObjectName}]";
+            return $"DELETE PROCEDURE [{SchemaName}].[{ObjectName}]";
         }
 
-        public string GetSavingText()
+        public string GetSourceControlSavableText()
         {
             return FunctionDefinition;
         }

@@ -2,13 +2,13 @@ namespace Rassoodock.SqlServer.Models.Code
 {
     public interface ICode
     {
-        string SchemeName { get; }
+        string SchemaName { get; }
 
         string ObjectName { get; }
 
         string FunctionDefinition { get; }
 
-        string GetSavingText();
+        string GetSourceControlSavableText();
 
         string GetApplicationAlteringText();
 

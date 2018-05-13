@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.DifferenceEngine
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rassoodock.DifferenceEngine.SqlServer.Tests.Unit", "Rassoodock.DifferenceEngine.SqlServer.Tests.Unit\Rassoodock.DifferenceEngine.SqlServer.Tests.Unit.csproj", "{F4DCF849-93BA-437F-A3D5-5549B1B1E2B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rassoodock.FileReader.SqlServer", "Rassoodock.FileReader.SqlServer\Rassoodock.FileReader.SqlServer.csproj", "{E7A39A2A-DC86-4999-A801-29A7CB258860}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{F4DCF849-93BA-437F-A3D5-5549B1B1E2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4DCF849-93BA-437F-A3D5-5549B1B1E2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4DCF849-93BA-437F-A3D5-5549B1B1E2B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A39A2A-DC86-4999-A801-29A7CB258860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A39A2A-DC86-4999-A801-29A7CB258860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A39A2A-DC86-4999-A801-29A7CB258860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A39A2A-DC86-4999-A801-29A7CB258860}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +116,7 @@ Global
 		{20A65A50-4698-480C-BFC7-C9B019D63EF9} = {400524E3-8564-4E2B-A3E8-04106567F88E}
 		{DF62825A-CF9E-4696-B439-293062721EE0} = {CABE6302-8927-4888-8E50-80C79838AE52}
 		{F4DCF849-93BA-437F-A3D5-5549B1B1E2B1} = {CABE6302-8927-4888-8E50-80C79838AE52}
+		{E7A39A2A-DC86-4999-A801-29A7CB258860} = {CABE6302-8927-4888-8E50-80C79838AE52}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C32646F-73CA-409F-B2AC-A3FF0669EE4E}
