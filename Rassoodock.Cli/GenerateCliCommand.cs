@@ -29,7 +29,11 @@ namespace Rassoodock.Cli
         {
             try
             {
-
+                if(string.IsNullOrWhiteSpace(databaseName))
+                {
+                    Console.WriteLine("Nickname of database required (See help for details)");
+                    return 1;
+                }
                 var directory = Directory.GetCurrentDirectory();
                 var fileName = Path.Combine(directory, $"{databaseName}.json");
                 var folderName = Path.Combine(directory, databaseName);
@@ -71,6 +75,7 @@ namespace Rassoodock.Cli
             catch (Exception e)
             {
                 Console.WriteLine($"Exception caught: {e.Message}");
+                Console.WriteLine(e.StackTrace);
                 return 1;
             }
         }
