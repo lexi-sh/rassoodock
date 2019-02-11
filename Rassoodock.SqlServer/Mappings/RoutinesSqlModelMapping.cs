@@ -16,7 +16,7 @@ namespace Rassoodock.SqlServer.Mappings
             config.CreateMap<SqlServerStoredProcedure, StoredProcedure>()
                 .ForMember(x => x.Name, c => c.MapFrom(x => x.ObjectName))
                 .ForMember(x => x.Schema, c => c.MapFrom(x => x.SchemaName))
-                .ForMember(x => x.Text, c => c.ResolveUsing(x => x.GetSourceControlSavableText()));
+                .ForMember(x => x.Text, c => c.MapFrom(x => x.GetSourceControlSavableText()));
         }
     }
 }
